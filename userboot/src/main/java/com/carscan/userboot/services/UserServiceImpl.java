@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+//this is service layer,that implements business logic(get data,update,delete etc)
+//@Service annotation indicate that they are holding business logic.
 @Service
 public class UserServiceImpl implements UserService{
 
@@ -26,22 +28,25 @@ public class UserServiceImpl implements UserService{
 //        users.add(new User(126,"Anurag","Dale",Date.valueOf("2000-02-15"),"Indore","8461984567"));
 //    }
 
+    //this method returns all entities that are saved to database with the help of findAll() and return list of entities to presentation layer
     @Override
     public List<User> getUsers() {
         return userRepository.findAll(); //return list of users
     }
 
+    //this method returns the entity whose id is given as method parameter,if no entity is found then this method returns null
     @Override
     public User getUser(long userId) {
-        System.out.println("under getUser method");
         return this.userRepository.getOne(userId);
     }
 
+    //this method saves the entity given as method parameter and returns the persisted entity
     @Override
     public User addUser(User user){
         return this.userRepository.save(user);
     }
 
+    //this method firstly get the entity whose entity is given as method parameter and then set updated value then saves the entity to database again
     @Override
     public User updateUser(User user){
         User u= this.userRepository.getById(user.getId());
@@ -53,6 +58,7 @@ public class UserServiceImpl implements UserService{
         return userRepository.save(u);
     }
 
+    //this method deletes the entity whose entity is given as method parameter
     @Override
     public User deleteUser(long userId){
         User user=userRepository.getById(userId);

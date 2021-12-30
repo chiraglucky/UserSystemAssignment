@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
 
+//@Entity annotation defines that this class can be mapped to a table
+//Every instance of an entity represents a row in the table.
 @Entity
 public class User {
     @Id
