@@ -1,6 +1,6 @@
 package com.carscan.userboot.services;
 
-import com.carscan.userboot.entities.User;
+import com.carscan.userboot.modal.User;
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ public interface UserService {
      public User getUser(long userId);
      public User addUser(User user);
      public User updateUser(User user);
-     public void deleteUser(long userId);
+     public User deleteUser(long userId);
 }

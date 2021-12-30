@@ -1,6 +1,6 @@
 package com.carscan.userboot.controllers;
 
-import com.carscan.userboot.entities.User;
+import com.carscan.userboot.modal.User;
 import com.carscan.userboot.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,36 +22,52 @@ public class UserController {
 
     //get all users
     @GetMapping("/users")
-    public List<User> getUsers(){
-         return userService.getUsers();
+    public ResponseEntity<Object> getUsers(){
+         List<User> users=this.userService.getUsers();
+         if(users.isEmpty()){
+             return new ResponseEntity<>("Data not exist",HttpStatus.NOT_FOUND);
+         }
+         return new ResponseEntity<>(users,HttpStatus.OK);
     }
 
-    //get user by id
+    //get user by user id
     @GetMapping("/users/{userId}")
-    public User getUser(@PathVariable String userId){
-        return userService.getUser(Long.parseLong(userId));
+    public ResponseEntity<Object> getUser(@PathVariable String userId){
+        User u=this.userService.getUser(Long.parseLong(userId));
+        if(u==null){
+            return new ResponseEntity<>("Data not exist",HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(u,HttpStatus.OK);
     }
 
     //Add a new user
     @PostMapping("/users")
-    public User addUser(@RequestBody User user){
-        return userService.addUser(user);
+    public ResponseEntity<Object> addUser(@RequestBody User user){
+        User u=this.userService.addUser(user);
+        if(u!=null){
+            return new ResponseEntity<>("Successfully added",HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Not added",HttpStatus.BAD_REQUEST);
     }
 
     //Update user
     @PutMapping("/users")
-    public User updateUser(@RequestBody User user){
-        return userService.updateUser(user);
+    public ResponseEntity<Object> updateUser(@RequestBody User user){
+        User u= this.userService.updateUser(user);
+        if(u!=null){
+            return new ResponseEntity<>("Successfully updated",HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Not modified",HttpStatus.NOT_MODIFIED);
     }
 
     //delete user
     @DeleteMapping("/users/{userId}")
-    public ResponseEntity<HttpStatus> deleteUser(@PathVariable String userId){
-        try {
-            this.userService.deleteUser(Long.parseLong(userId));
-            return new ResponseEntity<>(HttpStatus.OK);
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<Object> deleteUser(@PathVariable String userId){
+        User u=this.userService.deleteUser(Long.parseLong(userId));
+        if(u!=null){
+            return new ResponseEntity<>("Successfully deleted",HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("Data does not exist",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

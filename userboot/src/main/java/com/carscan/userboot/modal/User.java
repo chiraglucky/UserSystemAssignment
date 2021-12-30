@@ -1,8 +1,13 @@
-package com.carscan.userboot.entities;
+package com.carscan.userboot.modal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class User {
+    @Id
     private long id;
     private String fName;
     private String lName;
