@@ -11,8 +11,8 @@ import java.util.Date;
 public class User {
     @Id
     private long id;
-    private String fName;
-    private String lName;
+    private String fname;
+    private String lname;
     private Date dob;
     private String city;
     private String mobile;
@@ -24,8 +24,8 @@ public class User {
     public User(long id, String fName, String lName, Date dob, String city, String mobile) {
         super();
         this.id = id;
-        this.fName = fName;
-        this.lName = lName;
+        this.fname = fName;
+        this.lname = lName;
         this.dob = dob;
         this.city = city;
         this.mobile = mobile;
@@ -40,19 +40,19 @@ public class User {
     }
 
     public String getFname() {
-        return fName;
+        return fname;
     }
 
     public void setFname(String fname) {
-        this.fName = fname;
+        this.fname = fname;
     }
 
     public String getLname() {
-        return lName;
+        return lname;
     }
 
     public void setLname(String lName) {
-        this.lName = lName;
+        this.lname = lName;
     }
 
     public Date getDob() {
@@ -83,8 +83,8 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", fname='" + fName + '\'' +
-                ", lname='" + lName + '\'' +
+                ", fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
                 ", dob=" + dob +
                 ", city='" + city + '\'' +
                 ", mobile='" + mobile + '\'' +

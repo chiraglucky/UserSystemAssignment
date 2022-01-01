@@ -12,6 +12,7 @@ import java.util.List;
 //@Controller used to handle requests coming from the client
 //@ResponseBody tells controller that send the return object as the body(JSON format) rather than a view.
 //@RestController combines @Controller and @ResponseBody
+@CrossOrigin
 @RestController
 public class UserController {
 
@@ -51,6 +52,8 @@ public class UserController {
     //this method add a user in database and if user is successfully added then return http status OK ,otherwise it will return http status BAD_REQUEST
     @PostMapping("/users")
     public ResponseEntity<Object> addUser(@RequestBody User user){
+        System.out.println(user.getFname());
+        System.out.println(user.getLname());
         User u=this.userService.addUser(user);
         if(u!=null){
             return new ResponseEntity<>("Successfully added",HttpStatus.OK);
