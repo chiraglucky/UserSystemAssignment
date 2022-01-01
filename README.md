@@ -1,4 +1,4 @@
-# UserSystemAssignment with React JS and Springboot
+# User System Assignment with React JS and Springboot
 
 # Requirements
 
@@ -10,7 +10,7 @@ For building and running the application you need:
 
 # Running the application locally
 
-- firstly clone the project and unzip it.
+- Firstly clone the project and unzip it.
 - project folder consist 2 folder
   - userboot (Backend)
   - userreact (Frontend)
