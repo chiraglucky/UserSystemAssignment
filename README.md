@@ -10,7 +10,7 @@ For building and running the application you need:
 
 # Running the application locally
 
-- Firstly clone the project and unzip it.
+- Clone the project.
 - project folder consist 2 folder
   - userboot (Backend)
   - userreact (Frontend)
