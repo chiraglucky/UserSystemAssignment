@@ -71,4 +71,4 @@ For building and running the application you need:
  
  ### Now we have a backend server in Spring Boot running at http://localhost:8080 and a frontend in React running at http://localhost:3000 .We'd like to be able to call services in the backend and display the results in the frontend.In order to do this (and not get into trouble with any cross-origin requests (CORS)) so we add @CrossOrigin annotation on our spring controller class. 
 
-### Note: Database (MySQL) is hosted on google cloud platform and running on url 34.93.158.141 and port 3306.
+### Note: Database (MySQL) is hosted on google cloud platform and running on public ip address 34.93.158.141 and port 3306.
