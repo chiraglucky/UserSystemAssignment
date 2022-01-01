@@ -43,6 +43,15 @@ For building and running the application you need:
  
  ```
  http://localhost:8080/users
+ 
+ {
+    "id": 114,
+    "dob": "2000-01-01",
+    "city": "Bhopal",
+    "mobile": "8461956912",
+    "fname": "Chirag",
+    "lname": "Dale"
+}
  ```
 
 ##### Delete request to delete user from the database with the help of user id
@@ -54,6 +63,15 @@ For building and running the application you need:
  
  ```
   http://localhost:8080/users
+  
+  {
+    "id": 114,
+    "dob": "2000-01-01",
+    "city": "Bhopal",
+    "mobile": "8461956912",
+    "fname": "Abhilove",
+    "lname": "Upadhyay"
+}
  ```
 
 ### Run frontend app
