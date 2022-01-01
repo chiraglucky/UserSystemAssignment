@@ -4,13 +4,11 @@ import { Card, CardBody, Container } from 'reactstrap';
 const Header = () => {
     return (
         <div>
-            <Container>
-            <Card className='my-2 bg-primary'>
+            <Card className='my-2 bg-primary b-shadow-2'>
                 <CardBody>
                    <h1 className='text-center my-3'>User Management System</h1>
                 </CardBody>
             </Card>
-            </Container>
         </div>
     );
 }

@@ -23,6 +23,7 @@ const UpdateUser = () => {
   const [user,setUser] = useState(initialState);
 
   useEffect(() => {
+      document.title="UpdateUser:UserManagementSystem"
       axios.get(`${base_url}/users/${params.id}`).then(
           (response)=>{
               console.log(response.data)
@@ -31,19 +32,16 @@ const UpdateUser = () => {
       )
   }, [])
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
   //form handler function
   const handleForm=(e)=>{
     e.preventDefault();
     // console.log(form);
-    updateDataToServer(form)
+    updateDataToServer(user)
   }
 
   //function to update data on server
   const updateDataToServer=(data)=>{
+      console.log(data)
     axios.put(`${base_url}/users`,data).then(
         (response)=>{toast.success(response.data)},
         (error)=>{toast.error(error)}
@@ -62,7 +60,9 @@ const UpdateUser = () => {
             value={user.id}
             name="id"
             id="id"
-            onChange={handleChange}
+            onChange={(e)=>{
+                setUser({...user,id:e.target.value})
+            }}
           />
         </FormGroup>
         <FormGroup>
@@ -73,7 +73,9 @@ const UpdateUser = () => {
             value={user.fname}
             name="fname"
             id="fname"
-            onChange={handleChange}
+            onChange={(e)=>{
+                setUser({...user,fname:e.target.value})
+            }}
           />
         </FormGroup>
         <FormGroup>
@@ -84,7 +86,9 @@ const UpdateUser = () => {
             value={user.lname}
             name="lname"
             id="lname"
-            onChange={handleChange}
+            onChange={(e)=>{
+                setUser({...user,lname:e.target.value})
+            }}
           />
         </FormGroup>
         <FormGroup>
@@ -95,7 +99,9 @@ const UpdateUser = () => {
             value={user.city}
             name="city"
             id="city"
-            onChange={handleChange}
+            onChange={(e)=>{
+                setUser({...user,city:e.target.value})
+            }}
           />
         </FormGroup>
         <FormGroup>
@@ -106,12 +112,16 @@ const UpdateUser = () => {
             value={user.mobile}
             name="mobile"
             id="mobile"
-            onChange={handleChange}
+            onChange={(e)=>{
+                setUser({...user,mobile:e.target.value})
+            }}
           />
         </FormGroup>
         <FormGroup>
           <label>User DOB</label>
-          <Input placeholder={toString(user.dob)} value={user.dob} id="dob" name="dob" type="date" onChange={handleChange} />
+          <Input placeholder={toString(user.dob)} value={user.dob} id="dob" name="dob" type="date" onChange={(e)=>{
+                setUser({...user,dob:e.target.value})
+            }} />
         </FormGroup>
 
         <Container className="text-center">

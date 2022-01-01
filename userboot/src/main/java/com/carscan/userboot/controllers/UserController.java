@@ -66,6 +66,7 @@ public class UserController {
     //this method update user in database and if user is successfully updated then return http status OK ,otherwise it will return http status NOT_MODIFIED
     @PutMapping("/users")
     public ResponseEntity<Object> updateUser(@RequestBody User user){
+        System.out.println(user);
         User u= this.userService.updateUser(user);
         if(u!=null){
             return new ResponseEntity<>("Successfully updated",HttpStatus.OK);

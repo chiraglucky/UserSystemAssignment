@@ -9,6 +9,8 @@ import AddUser from "./components/AddUser";
 import { Col, Container, Row } from "reactstrap";
 import Menu from "./components/Menu";
 import UpdateUser from "./components/UpdateUser";
+import Contact from "./components/Contact";
+import About from "./components/About";
 
 function App() {
   
@@ -28,6 +30,8 @@ function App() {
                 <Route path="/add-user" element={<AddUser/>} exact />
                 <Route path="/view-users" element={<AllUser/>} exact />
                 <Route path="/update-user/:id" element={<UpdateUser/>} exact/>
+                <Route path="/about" element={<About/>} exact/>
+                <Route path="/contact" element={<Contact/>} exact/>
               </Routes>
             </Col>
           </Row>
