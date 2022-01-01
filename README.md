@@ -32,8 +32,6 @@ For building and running the application you need:
  ```
  http://localhost:8080/users
  ```
- ![Uploading image.png…]()
-
 
 ##### Get request to get specific user from the database with the help of user id
  
