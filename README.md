@@ -25,7 +25,7 @@ For building and running the application you need:
   ```
 
 
-### Calling REST services in spring from POSTMAN
+### Calling REST services in spring from Postman
  
 ##### Get request to get all users from database:
 
