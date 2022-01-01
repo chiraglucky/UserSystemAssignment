@@ -14,7 +14,7 @@ For building and running the application you need:
 - project folder consist 2 folder
   - userboot (Backend)
   - userreact (Frontend)
-- open in any terminal/IDE
+- open in terminal/IDE
 
 ### Run springboot app
 
